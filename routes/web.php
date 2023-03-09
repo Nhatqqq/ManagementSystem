@@ -17,11 +17,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::prefix('login')->group(function () {
+Route::prefix('/')->group(function () {
     Route::get('/',[AuthController::class,'getLogin']);
     Route::post('/',[AuthController::class,'postLogin'])->name('auth.login');
 });
