@@ -49,7 +49,8 @@ class TrainerController extends Controller
             'assigned_topics.trainer_id', 
             'human_resources.name as trainer_name', 
             'assigned_topics.topic_id', 
-            'topics.name as topic_name'
+            'topics.name as topic_name',
+            'topics.description'
         )
         ->where('trainer_id', $user->id)->get();
         return view('Trainer.Page.Topic.listTopic', compact('assignedTopics'));

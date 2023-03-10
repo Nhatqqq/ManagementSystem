@@ -24,34 +24,43 @@
                                 <div>
                                     @csrf
                                     <label>Username:</label>
-                                    <input type="text" class="form-control" name="username" placeholder="Username">
+                                    <input type="text" class="form-control" name="username" value="{{ old('username') }}"
+                                        placeholder="Username">
                                     <br>
                                     <label>Password:</label>
                                     <input type="password" class="form-control" name="password" placeholder="Password">
                                     <br>
                                     <label>Name:</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Full Name">
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}"
+                                        placeholder="Full Name">
                                     <br>
                                     <label>Age:</label>
-                                    <input type="text" class="form-control" name="age" placeholder="Age">
+                                    <input type="text" class="form-control" name="age" value="{{ old('age') }}"
+                                        placeholder="Age">
                                     <br>
                                     <label>Date of Birth:</label>
-                                    <input type="text" class="form-control" name="DoB" placeholder="Date of Birth">
+                                    <input type="text" class="form-control" name="DoB" value="{{ old('DoB') }}"
+                                        placeholder="Date of Birth">
                                     <br>
                                     <label>Address:</label>
-                                    <input type="text" class="form-control" name="address" placeholder="Address">
+                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}"
+                                        placeholder="Address">
                                     <br>
                                     <label>Education:</label>
-                                    <input type="text" class="form-control" name="education" placeholder="Education">
+                                    <input type="text" class="form-control" name="education" value="{{ old('education') }}"
+                                        placeholder="Education">
                                     <br>
                                     <label>Department:</label>
-                                    <input type="text" class="form-control" name="department" placeholder="Department">
+                                    <input type="text" class="form-control" name="department" value="{{ old('department') }}"
+                                        placeholder="Department">
                                     <br>
                                     <label>Main Programming Language:</label>
-                                    <input type="text" class="form-control" name="main_programming_language" placeholder="Main Programming Language">
+                                    <input type="text" class="form-control" name="main_programming_language" 
+                                        value="{{ old('main_programming_language') }}" placeholder="Main Programming Language">
                                     <br>
                                     <label>TOEIC Score:</label>
-                                    <input type="text" class="form-control" name="toeic_score" placeholder="TOEIC Score">
+                                    <input type="text" class="form-control" name="toeic_score" value="{{ old('toeic_score') }}"
+                                        placeholder="TOEIC Score">
                                     <br>
                                 </div>
                             </fieldset>

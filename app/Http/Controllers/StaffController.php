@@ -80,7 +80,7 @@ class StaffController extends Controller
     public function postUpdateTrainee(Request $request, $id){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-                'username'=>'unique:human_resources,username',
+                
             ]);
 
             if($validator->fails()){
@@ -132,7 +132,7 @@ class StaffController extends Controller
     public function postAddCategory(Request $request){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-                'name'=>'required',
+                'name'=>'required|unique:categories,name',
                 'description'=>'required',
             ]);
 
@@ -158,7 +158,7 @@ class StaffController extends Controller
     public function postUpdateCategory(Request $request, $id){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-
+                
             ]);
 
             if($validator->fails()){
@@ -206,7 +206,7 @@ class StaffController extends Controller
     public function postAddCourse(Request $request){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-                'name'=>'required',
+                'name'=>'required|unique:courses,name',
                 'description'=>'required',
                 'category_id'=>'required',
             ]);
@@ -235,7 +235,7 @@ class StaffController extends Controller
     public function postUpdateCourse(Request $request, $id){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-
+                
             ]);
 
             if($validator->fails()){
@@ -286,7 +286,7 @@ class StaffController extends Controller
     public function postAddTopic(Request $request){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-                'name'=>'required',
+                'name'=>'required|unique:topics,name',
                 'description'=>'required',
                 'course_id'=>'required',
             ]);
@@ -315,7 +315,7 @@ class StaffController extends Controller
     public function postUpdateTopic(Request $request, $id){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-
+                
             ]);
 
             if($validator->fails()){
@@ -365,7 +365,7 @@ class StaffController extends Controller
                 'name'=>'required',
                 'department'=>'required',
                 'phone'=>'required',
-                'email'=>'required',
+                'email'=>'required|email|unique:human_resources,email',
             ]);
 
             if($validator->fails()){
@@ -435,7 +435,8 @@ class StaffController extends Controller
             'assigned_courses.trainee_id', 
             'human_resources.name as trainee_name', 
             'assigned_courses.course_id', 
-            'courses.name as course_name'
+            'courses.name as course_name',
+            'courses.description'
         )
         ->get();
         return view('Staff.Page.CourseAssign.listCourseAssign', compact('courseTrainers'));
@@ -516,7 +517,8 @@ class StaffController extends Controller
             'assigned_topics.trainer_id', 
             'human_resources.name as trainer_name', 
             'assigned_topics.topic_id', 
-            'topics.name as topic_name'
+            'topics.name as topic_name',
+            'topics.description'
         )
         ->get();
         return view('Staff.Page.TopicAssign.listTopicAssign', compact('courseTopics'));

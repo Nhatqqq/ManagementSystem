@@ -33,7 +33,7 @@
                             <tr>
                                 <th>Topic</th>
                                 <th>Trainer</th>
-                                <th></th>
+                                <th>Description</th>
                                 <th></th>
                                 <th></th>
                                 <th>Option</th>
@@ -44,7 +44,7 @@
                                 <tr>
                                     <td>{{ $value->trainer_name }}</td>
                                     <td>{{ $value->topic_name }}</td>
-                                    <td></td>
+                                    <td>{{ $value->description }}</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>

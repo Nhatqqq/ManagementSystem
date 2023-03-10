@@ -127,7 +127,7 @@ class AdminController extends Controller
     public function postUpdateAccount(Request $request, $id){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-                'username'=>'required',
+                'username'=>'required|unique:human_resources,username',
                 'password'=>'required',
             ]);
 

@@ -24,29 +24,34 @@
                                 <div>
                                     @csrf
                                     <label>Username:</label>
-                                    <input type="text" class="form-control" name="username" placeholder="Username">
+                                    <input type="text" class="form-control" name="username" value="{{ old('username') }}"
+                                        placeholder="Username">
                                     <br>
                                     <label>Password:</label>
                                     <input type="password" class="form-control" name="password" placeholder="Password">
                                     <br>
                                     <label>Name:</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Full Name">
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}"
+                                        placeholder="Full Name">
                                     <br>
                                     <label>Type:</label>
                                     <br>
-                                    <select class="form-control" name="type">
+                                    <select class="form-control" name="type" value="{{ old('type') }}">
                                         <option value="External">External</option>
                                         <option value="Internal">Internal</option>
                                     </select>
                                     <br>
                                     <label>Department:</label>
-                                    <input type="text" class="form-control" name="department" placeholder="Department">
+                                    <input type="text" class="form-control" name="department" value="{{ old('department') }}"
+                                        placeholder="Department">
                                     <br>
                                     <label>Phone Number:</label>
-                                    <input type="text" class="form-control" name="phone" placeholder="Phone Number">
+                                    <input type="text" class="form-control" name="phone" value="{{ old('phone') }}"
+                                        placeholder="Phone Number">
                                     <br>
                                     <label>E-mail:</label>
-                                    <input type="text" class="form-control" name="email" placeholder="E-mail">
+                                    <input type="text" class="form-control" name="email" value="{{ old('email') }}"
+                                        placeholder="E-mail">
                                     <br>
                                 </div>
                             </fieldset>

@@ -55,7 +55,7 @@
                             <tr>
                                 <th>Course</th>
                                 <th>Trainee</th>
-                                <th></th>
+                                <th>Description</th>
                                 <th></th>
                                 <th></th>
                                 <th>Option</th>
@@ -66,7 +66,7 @@
                                 <tr>
                                     <td>{{ $value->trainee_name }}</td>
                                     <td>{{ $value->course_name }}</td>
-                                    <td></td>
+                                    <td>{{ $value->description }}</td>
                                     <td></td>
                                     <td></td>
                                     <td>

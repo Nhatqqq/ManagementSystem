@@ -16,13 +16,13 @@ return new class extends Migration
         
         Schema::create('categories', function($table){
             $table->increments('id');
-            $table->string('name',200);
+            $table->string('name',200)->unique();;
             $table->longtext('description');
         });
         
         Schema::create('courses', function($table){
             $table->increments('id');
-            $table->string('name',200);
+            $table->string('name',200)->unique();;
             $table->longtext('description');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
@@ -30,7 +30,7 @@ return new class extends Migration
         
         Schema::create('topics', function($table){
             $table->increments('id');
-            $table->string('name',200);
+            $table->string('name',200)->unique();;
             $table->longtext('description');
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
@@ -38,7 +38,7 @@ return new class extends Migration
         
         Schema::create('roles', function($table){
             $table->increments('id');
-            $table->string('name',200);
+            $table->string('name',200)->unique();;
             $table->longtext('description');
         });
         
@@ -52,10 +52,10 @@ return new class extends Migration
             $table->string('department',200)->nullable();
             $table->string('type',200)->nullable();
             $table->string('education',200)->nullable();
-            $table->string('age',3)->nullable();;
-            $table->string('DoB',10)->nullable();;
-            $table->string('address',100)->nullable();;
-            $table->string('toeic_score',200)->nullable();;
+            $table->string('age',3)->nullable();
+            $table->string('DoB',10)->nullable();
+            $table->string('address',100)->nullable();
+            $table->string('toeic_score',200)->nullable();
             $table->string('main_programming_language',200)->nullable();;
             $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('id')->on('roles');
