@@ -29,14 +29,6 @@
                                     <label>Password:</label>
                                     <input type="password" class="form-control" name="password" placeholder="Password">
                                     <br>
-                                    <label>Role:</label>
-                                    <select name="role_id" class="form-control">
-                                        @foreach ($role as $roles)
-                                            <option value="{{ $roles->id }}">{{ $roles->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    <br>
                                 </div>
                             </fieldset>
                             <button class="btn btn-primary btn-block text-uppercase mb-3" type="submit">

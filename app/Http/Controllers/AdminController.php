@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -110,7 +111,7 @@ class AdminController extends Controller
 
             $account= new User;
             $account->username=$request->username;
-            $account->password=$request->password;
+            $account->password=Hash::make($request->password);
             $account->role_id='2';
             $account->save();
             return redirect()->route('admin.account.index')->with('success','Add new Account Successfully!');
@@ -138,8 +139,7 @@ class AdminController extends Controller
 
             $account= User::find($id);
             $account->username=$request->username;
-            $account->password=$request->password;
-            $account->role_id=$request->role_id;
+            $account->password=Hash::make($request->password);
             $account->save();
             return redirect()->route('admin.account.index')->with('success','Update Account Successfully!');
         }

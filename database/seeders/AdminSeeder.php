@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class AdminSeeder extends Seeder
 
         DB::table('human_resources')->insert([
             'username' => 'admin',
-            'password' => '123',
+            'password' => Hash::make('123'),
             'role_id' => '1',
         ]);
     }

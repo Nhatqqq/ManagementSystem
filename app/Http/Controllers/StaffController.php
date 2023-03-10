@@ -10,6 +10,7 @@ use App\Models\AssignTopics;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -56,7 +57,7 @@ class StaffController extends Controller
 
             $trainee= new User;
             $trainee->username=$request->username;
-            $trainee->password=$request->password;
+            $trainee->password=Hash::make($request->password);
             $trainee->name=$request->name;
             $trainee->age=$request->age;
             $trainee->DoB=$request->DoB;
@@ -90,7 +91,7 @@ class StaffController extends Controller
 
             $trainee= User::find($id);
             $trainee->username=$request->username;
-            $trainee->password=$request->password;
+            $trainee->password=Hash::make($request->password);
             $trainee->name=$request->name;
             $trainee->age=$request->age;
             $trainee->DoB=$request->DoB;
@@ -375,7 +376,7 @@ class StaffController extends Controller
 
             $trainer= new User;
             $trainer->username=$request->username;
-            $trainer->password=$request->password;
+            $trainer->password=Hash::make($request->password);
             $trainer->name=$request->name;
             $trainer->type=$request->type;
             $trainer->department=$request->department;
@@ -407,7 +408,7 @@ class StaffController extends Controller
 
             $trainer= User::find($id);
             $trainer->username=$request->username;
-            $trainer->password=$request->password;
+            $trainer->password=Hash::make($request->password);
             $trainer->name=$request->name;
             $trainer->type=$request->type;
             $trainer->department=$request->department;

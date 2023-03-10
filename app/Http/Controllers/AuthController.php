@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,10 +21,10 @@ class AuthController extends Controller
             'username' => ['required', 'string'],
             'password' => ['required', 'string'],
         ]);
-
+    
         $user = User::where('username', $request->username)->first();
-
-        if ($user && $user->password === $request->password) {
+    
+        if ($user && Hash::check($request->password, $user->password)) {
             Auth::login($user);
     
             $request->session()->regenerate();
