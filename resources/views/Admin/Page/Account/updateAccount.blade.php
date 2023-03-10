@@ -29,6 +29,12 @@
                                     <label>Password:</label>
                                     <input type="password" class="form-control" name="password" placeholder="Password">
                                     <br>
+                                    <br>
+                                    <select class="form-control" name="role_id" value="{{ old('role_id') }}">
+                                        <option value="2">Staff</option>
+                                        <option value="3">Trainer</option>
+                                    </select>
+                                    <br>
                                 </div>
                             </fieldset>
                             <button class="btn btn-primary btn-block text-uppercase mb-3" type="submit">
@@ -40,4 +46,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

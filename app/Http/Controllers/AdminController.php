@@ -85,6 +85,7 @@ class AdminController extends Controller
         $account=DB::table('human_resources')
         ->join('roles', 'human_resources.role_id', '=', 'roles.id')
         ->where('roles.name', '=', 'Staff')
+        ->orWhere('roles.name', '=', 'Trainer')
         ->select('human_resources.*')
         ->get();
         $role=Roles::all();
@@ -112,7 +113,7 @@ class AdminController extends Controller
             $account= new User;
             $account->username=$request->username;
             $account->password=Hash::make($request->password);
-            $account->role_id='2';
+            $account->role_id=$request->role_id;
             $account->save();
             return redirect()->route('admin.account.index')->with('success','Add new Account Successfully!');
         }
@@ -127,8 +128,7 @@ class AdminController extends Controller
     public function postUpdateAccount(Request $request, $id){
         if($request->isMethod('POST')){
             $validator=Validator::make($request->all(),[
-                'username'=>'required|unique:human_resources,username',
-                'password'=>'required',
+
             ]);
 
             if($validator->fails()){
@@ -140,6 +140,7 @@ class AdminController extends Controller
             $account= User::find($id);
             $account->username=$request->username;
             $account->password=Hash::make($request->password);
+            $account->role_id=$request->role_id;
             $account->save();
             return redirect()->route('admin.account.index')->with('success','Update Account Successfully!');
         }
@@ -148,6 +149,6 @@ class AdminController extends Controller
     public function deleteAccount($id){
         $account=User::find($id);
         $account->delete();
-        return back();
+        return back()->with('success', 'Delete user Successfully!');
     }
 }

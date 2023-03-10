@@ -20,6 +20,21 @@ class AdminSeeder extends Seeder
             'description' => 'Administrator',
         ]);
 
+        DB::table('roles')->insert([
+            'name' => 'Staff',
+            'description' => 'Management Staff',
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'Trainer',
+            'description' => 'Intructor of the topic',
+        ]);
+
+        DB::table('roles')->insert([
+            'name' => 'Trainee',
+            'description' => 'Student that learning courses',
+        ]);
+
         DB::table('human_resources')->insert([
             'username' => 'admin',
             'password' => Hash::make('123'),
