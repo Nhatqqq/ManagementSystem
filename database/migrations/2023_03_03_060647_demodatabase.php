@@ -13,35 +13,35 @@ return new class extends Migration
      */
     public function up()
     {
-        
+
         Schema::create('categories', function($table){
             $table->increments('id');
-            $table->string('name',200)->unique();;
+            $table->string('name',200)->unique();
             $table->longtext('description');
         });
-        
+
         Schema::create('courses', function($table){
             $table->increments('id');
-            $table->string('name',200)->unique();;
+            $table->string('name',200)->unique();
             $table->longtext('description');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
         });
-        
+
         Schema::create('topics', function($table){
             $table->increments('id');
-            $table->string('name',200)->unique();;
+            $table->string('name',200)->unique();
             $table->longtext('description');
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
         });
-        
+
         Schema::create('roles', function($table){
             $table->increments('id');
-            $table->string('name',200)->unique();;
+            $table->string('name',200)->unique();
             $table->longtext('description');
         });
-        
+
         Schema::create('human_resources', function($table){
             $table->increments('id');
             $table->string('username',200)->unique();
@@ -56,12 +56,12 @@ return new class extends Migration
             $table->string('DoB',10)->nullable();
             $table->string('address',100)->nullable();
             $table->string('toeic_score',200)->nullable();
-            $table->string('main_programming_language',200)->nullable();;
+            $table->string('main_programming_language',200)->nullable();
             $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();
         });
-        
+
         Schema::create('assigned_courses', function($table){
             $table->increments('id');
             $table->integer('course_id')->unsigned();
@@ -69,7 +69,7 @@ return new class extends Migration
             $table->integer('trainee_id')->unsigned();
             $table->foreign('trainee_id')->references('id')->on('human_resources');
         });
-        
+
         Schema::create('assigned_topics', function($table){
             $table->increments('id');
             $table->integer('topic_id')->unsigned();
@@ -77,7 +77,7 @@ return new class extends Migration
             $table->integer('trainer_id')->unsigned();
             $table->foreign('trainer_id')->references('id')->on('human_resources');
         });
-        
+
     }
 
     /**
